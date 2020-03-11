@@ -1,9 +1,17 @@
 import { Router } from 'express';
-import SessionController from './controllers/SessionController';
+import SessionController from './app/controllers/SessionController';
+
+/**
+ * Validators
+ */
+import { validateSessionStore } from './app/validators';
 
 const routes = new Router();
 
-routes.post('/session', SessionController.store);
+/**
+ * Routes
+ */
+routes.post('/session', validateSessionStore, SessionController.store);
 
 routes.get('/', (req, res) =>
   res.json({
