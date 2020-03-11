@@ -2,6 +2,11 @@ import express from 'express';
 
 import routes from './routes';
 
+/**
+ * Database connection
+ */
+import './database';
+
 class App {
   constructor() {
     this.server = express();
