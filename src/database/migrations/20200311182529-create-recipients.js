@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
       },
       complement: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       zip_code: {
