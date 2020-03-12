@@ -16,11 +16,15 @@ const routes = new Router();
  */
 routes.post('/session', validateSessionStore, SessionController.store);
 
+/**
+ * All routes below are protected with JWT
+ */
 routes.use(authMiddleware);
 
 routes.post('/recipients', validateRecipientStore, RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 routes.get('/recipients', RecipientController.index);
+routes.delete('/recipients/:id', RecipientController.destroy);
 
 routes.get('/', (req, res) =>
   res.json({
